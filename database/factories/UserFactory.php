@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 
@@ -12,7 +13,7 @@ use Faker\Generator as Faker;
 | your application. Factories provide a convenient way to generate new
 | model instances for testing / seeding your application's database.
 |
-*/
+ */
 
 $factory->define(App\User::class, function (Faker $faker) {
     return [
@@ -21,5 +22,10 @@ $factory->define(App\User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
         'remember_token' => Str::random(10),
+        'type' => User::DEFAULT_TYPE,
     ];
 });
+
+$factory->state(App\User::class, 'admin', [
+    'type' => User::ADMIN_TYPE
+]);
