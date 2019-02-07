@@ -1,7 +1,10 @@
-@foreach($horses as $horse)
-<h1>{{ $horse->name }}</h1>
-<h2>{{ $horse->gender }}</h2>
-<h2>{{ $horse->breed }}</h2>
-<h2>{{ $horse->color }}</h2>
-<h2>{{ $horse->height . ' hh'}}</h2>
-@endforeach
+@extends('layouts.app')
+
+@section('content')
+    <h3 class="mb-4 text-center">{{ Auth::user()->name }}'s Horses</h3>
+
+    @foreach($horses as $horse)
+    <horse-card :horse="{{ $horse }}"></horse-card>
+    @endforeach
+</div>
+@endsection

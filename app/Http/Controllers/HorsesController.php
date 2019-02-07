@@ -24,15 +24,34 @@ class HorsesController extends Controller
         return view('horses.create');
     }
 
+    public function update($id)
+    {
+        $horse = Horse::findOrFail($id);
+        $horse->name = request('name');
+        $horse->gender = request('gender');
+        $horse->breed = request('breed');
+        $horse->color = request('color');
+        $horse->height = request('height');
+        $horse->save();
+        return redirect()->route('horses.index');
+    }
+
     public function store()
     {
-        $concert = Auth::user()->horses()->create([
+        Auth::user()->horses()->create([
             'name' => request('name'),
             'gender' => request('gender'),
             'breed' => request('breed'),
             'color' => request('color'),
             'height' => request('height'),
         ]);
+        return redirect()->route('horses.index');
+    }
+
+    public function destroy($id)
+    {
+        $horse = Horse::findOrFail($id);
+        $horse->delete();
         return redirect()->route('horses.index');
     }
 }
