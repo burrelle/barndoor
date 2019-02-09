@@ -83,8 +83,9 @@
                                 class="col-md-4 col-form-label text-md-right"
                                 for="height"
                             >
-                                Height
+                                Height (hh)
                             </label>
+                            <div></div>
                             <div class="col-md-6">
                                 <input
                                     class="form-control"
@@ -93,7 +94,6 @@
                                     id="height"
                                 />
                             </div>
-                            hh
                         </div>
                         <div class="form-group row">
                             <div class="col-md-8 offset-md-4">

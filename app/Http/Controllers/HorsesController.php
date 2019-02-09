@@ -52,6 +52,5 @@ class HorsesController extends Controller
     {
         $horse = Horse::findOrFail($id);
         $horse->delete();
-        return redirect()->route('horses.index');
     }
 }

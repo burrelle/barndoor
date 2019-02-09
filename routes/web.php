@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/horses/{horse}', 'HorsesController@show')->where('horse', '[0-9]+');
-Route::get('/horses/new', 'HorsesController@create')->middleware('auth');
+Route::get('/horses/new', 'HorsesController@create')->middleware('auth')->name('horses.create');
 Route::post('/horses', 'HorsesController@store')->middleware('auth')->name('horses.store');
 Route::get('/horses', 'HorsesController@index')->middleware('auth')->name('horses.index');
 Route::delete('/horses/{horse}', 'HorsesController@destroy')->middleware('auth');
